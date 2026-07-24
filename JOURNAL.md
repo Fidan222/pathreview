@@ -27,5 +27,14 @@ The bias detector in `safety/bias_detector.py` is supposed to flag biased langua
 
 ## Week 8 — Reproduction & solution planning
 
+**Reproduction commit link:** https://github.com/Fidan222/pathreview/commit/c81dd43
+
 **Reproduction summary:**
 I reproduced the issue by running `BiasDetector.detect_bias()` directly on the exact phrase from the issue ("The candidate only attended a bootcamp, so this project lacks the rigor of a formal CS education") and confirmed it returned `(False, '')` instead of flagging it as biased. I also ran `pytest tests/unit/test_bias_detector.py -v` and confirmed 9 tests fail while 23 pass, matching the count described in the issue exactly. The failures show a consistent pattern: the detector catches some phrasings of bootcamp/age/demographic bias but misses natural variations like "can't write production code," "can't handle complex systems," and "aren't equal to."
+
+**PLAN.md link:** https://github.com/Fidan222/pathreview/blob/fix/151-bias-detector-patterns/PLAN.md
+
+**Walkthrough video (recommended):** (not recorded — optional, not graded)
+
+**Blockers or open questions:**
+Not yet sure how loose I can make the regex before it starts flagging clean/positive feedback as biased — I'll need to test carefully against the 23 currently-passing tests while I fix the 9 failing ones.
