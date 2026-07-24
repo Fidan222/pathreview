@@ -24,3 +24,8 @@ The bias detector in `safety/bias_detector.py` is supposed to flag biased langua
 **Setup confirmation:** [x] App runs locally at localhost:5173
 
 **Cohort ledger:** [ ] Issue added to cohort ledger
+
+## Week 8 — Reproduction & solution planning
+
+**Reproduction summary:**
+I reproduced the issue by running `BiasDetector.detect_bias()` directly on the exact phrase from the issue ("The candidate only attended a bootcamp, so this project lacks the rigor of a formal CS education") and confirmed it returned `(False, '')` instead of flagging it as biased. I also ran `pytest tests/unit/test_bias_detector.py -v` and confirmed 9 tests fail while 23 pass, matching the count described in the issue exactly. The failures show a consistent pattern: the detector catches some phrasings of bootcamp/age/demographic bias but misses natural variations like "can't write production code," "can't handle complex systems," and "aren't equal to."
