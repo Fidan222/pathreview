@@ -38,3 +38,34 @@ I reproduced the issue by running `BiasDetector.detect_bias()` directly on the e
 
 **Blockers or open questions:**
 Not yet sure how loose I can make the regex before it starts flagging clean/positive feedback as biased — I'll need to test carefully against the 23 currently-passing tests while I fix the 9 failing ones.
+
+## Week 9 — Solution building & PR submission
+
+### Check-in 1 (mid-week)
+
+**Current progress:**
+I implemented the fix in `safety/bias_detector.py`, broadening the regex patterns per my PLAN.md: added support for plural nouns (developers/programmers, not just singular), can't/won't phrasing, removed the unnecessary "is" requirement before "lacks," and added a new pattern for "attendance means inadequate training" phrasing. All 9 previously-failing tests in `tests/unit/test_bias_detector.py` now pass, with no regressions to the 23 that were already passing.
+
+**Next steps:**
+Open a draft PR, run it through `make check` and the full test suite one more time, get a classmate or mentor to review it in Slack, then finalize and submit.
+
+**Blockers:**
+None currently.
+
+---
+
+### Check-in 2 (end of week)
+
+**PR link:** [will add once opened]
+
+**Branch:** fix/151-bias-detector-patterns
+
+**What you built:**
+[fill in after PR opened]
+
+**Tests added or updated:**
+[fill in after PR opened]
+
+**Self-review confirmation:** [ ] make check passes  [ ] make test-unit passes
+
+**Draft PR feedback received from:** [fill in after review]
