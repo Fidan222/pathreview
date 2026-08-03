@@ -56,16 +56,16 @@ None currently.
 
 ### Check-in 2 (end of week)
 
-**PR link:** [will add once opened]
+**PR link:** https://github.com/ascherj/pathreview/pull/609
 
 **Branch:** fix/151-bias-detector-patterns
 
 **What you built:**
-[fill in after PR opened]
+Broadened the regex patterns in `safety/bias_detector.py` to catch natural phrasings of biased language that the original patterns missed — plural nouns, "can't/won't" phrasing, and a new pattern for "attendance means inadequate training."
 
 **Tests added or updated:**
-[fill in after PR opened]
+No new test files — the issue included 9 pre-written failing tests in `tests/unit/test_bias_detector.py` that define the expected behavior. All 9 now pass, with no regressions to the 23 that were already passing.
 
-**Self-review confirmation:** [ ] make check passes  [ ] make test-unit passes
+**Self-review confirmation:** [x] make check passes  [x] make test-unit passes
 
-**Draft PR feedback received from:** [fill in after review]
+**Draft PR feedback received from:** None — per the Week 9 lecture, no code review feedback is provided this term; completed self-review against the seven conditions checklist instead.
