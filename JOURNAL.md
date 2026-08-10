@@ -69,3 +69,34 @@ No new test files — the issue included 9 pre-written failing tests in `tests/u
 **Self-review confirmation:** [x] make check passes  [x] make test-unit passes
 
 **Draft PR feedback received from:** None — per the Week 9 lecture, no code review feedback is provided this term; completed self-review against the seven conditions checklist instead.
+
+## Week 10 — Iteration & reflection
+
+### Reviewer feedback
+
+**Feedback received:** [ ] Yes  [x] No — still awaiting review
+
+**Summary of feedback:**
+no feedback came in, which makes sense since code review isnt a thing this term. instead i just self reviewed against the seven conditions checklist (fix works, tests pass, code follows conventions, linter passes, docs updated, pr description written).
+
+**How you responded:**
+n/a, nothing to respond to since there was no feedback
+
+---
+
+### Reflection
+
+**What was harder than you expected?**
+honestly just getting my environment running took way longer than actually fixing the bug did. my computer had python 3.9.6 by default but the project needed 3.11+, so make setup kept failing until i found a newer python already on my machine and rebuilt my venv pointed at that. then i didnt even have docker installed, and once i got it, the rosetta installer inside docker kept failing with some virtualization error that had literally nothing to do with my actual code. none of that was even real coding, it was just setup stuff, but it ate almost my whole first session.
+
+**What did you learn about working in a large codebase?**
+the actual fix was small, like a few regex patterns in one file, but the codebase around it is massive. theres dozens of other files with their own tests, and a bunch of those were already broken before i even touched anything. i learned that "does the whole test suite pass" isnt really the right thing to check in a big codebase like this, the real question is "did MY change break something that wasnt already broken." i actually had to go through like 44 unrelated failing tests just to make sure none of them were caused by me instead of just assuming i broke everything.
+
+**How did AI tools help — and where did they fall short?**
+ai was super helpful for reading through the failing tests and figuring out exactly why each one failed compared to the regex patterns, that would've taken me forever to do line by line on my own. it also helped a lot with drafting PLAN.md and the pr description so i wasnt just staring at a blank template. where it couldnt help was actually fixing my computer, like the python version thing or getting docker working, i had to just run commands myself and read the actual errors to figure that stuff out step by step.
+
+**What would you do differently if you started over?**
+i'd check my python version and get docker installed before even picking an issue, instead of finding out both were broken in the middle of setup. i'd also actually read the "development" section on an issue (to check for existing branches/prs) before committing to it, i almost picked one that already had a pr from someone else that was only 7 hours old, which could've just closed on me randomly mid week.
+
+**What are you most proud of from this module?**
+getting all 9 of the failing tests to pass on my first real attempt at the fix, without breaking any of the 23 that were already passing. felt like proof that the plan i actually wrote out in week 8 held up once i started writing real code instead of falling apart the second i opened the file.
